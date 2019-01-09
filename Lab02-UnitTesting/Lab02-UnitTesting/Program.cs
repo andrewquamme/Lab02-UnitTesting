@@ -29,12 +29,16 @@ namespace Lab02_UnitTesting
                     AnotherTransaction();
                     break;
                 case 2:
+                    Console.Write("Enter amount to withdraw: ");
+                    string enteredWithdrawal = Console.ReadLine();
+                    double withdrawal = CheckForNumbers(enteredWithdrawal);
+                    balance = MakeWithdrawal(balance, withdrawal);
                     AnotherTransaction();
                     break;
                 case 3:
                     Console.Write("Enter deposit amount: ");
-                    string amount = Console.ReadLine();
-                    double deposit = CheckForNumbers(amount);
+                    string enteredDeposit = Console.ReadLine();
+                    double deposit = CheckForNumbers(enteredDeposit);
                     balance = MakeDeposit(balance, deposit);
                     AnotherTransaction();
                     break;
@@ -58,7 +62,7 @@ namespace Lab02_UnitTesting
             catch (Exception)
             {
                 Console.WriteLine("***An error has occurred. Please try again***");
-                MainMenu();
+                AnotherTransaction();
             }
             return number;
         }
@@ -77,14 +81,19 @@ namespace Lab02_UnitTesting
             }
         }
 
-        public static double MakeDeposit(double balance, double deposit)
+        public static double MakeDeposit(double balance, double amount)
         {
-            if(deposit < 0)
+            if(amount < 0)
             {
                 Console.WriteLine("***Please enter positive numbers only");
                 return balance;
             }
-            return balance + deposit;
+            return balance + amount;
+        }
+
+        public static double MakeWithdrawal(double balance, double amount)
+        {
+
         }
     }
 }
