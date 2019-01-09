@@ -19,18 +19,32 @@ namespace Lab02_UnitTesting
             Console.WriteLine("3. Make a Deposit");
             Console.WriteLine("4. Exit");
             string menuSelection = Console.ReadLine();
-            int selection = Convert.ToInt32(menuSelection);
-
+            int selection = 0;
+            try
+            {
+                selection = Convert.ToInt32(menuSelection);
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("Invalid Selection");
+                MainMenu();
+            }
+            finally
+            {
+                selection = Convert.ToInt32(menuSelection);
+            }
             switch (selection)
             {
                 case 1:
                     Console.WriteLine($"Your current balance is ${balance}");
+                    AnotherTransaction();
                     break;
                 case 2:
                     break;
                 case 3:
                     break;
                 case 4:
+                    Environment.Exit(0);
                     break;
                 default:
                     break;
