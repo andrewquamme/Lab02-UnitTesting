@@ -27,5 +27,11 @@ namespace XUnitTestProject1
             Assert.Equal(4000, Program.MakeWithdrawal(5000, 1000));
         }
 
+        [Fact]
+        public void CannotOverdraft()
+        {
+            Assert.Equal(20, Program.MakeWithdrawal(20, 50));
+        }
+
     }
 }
