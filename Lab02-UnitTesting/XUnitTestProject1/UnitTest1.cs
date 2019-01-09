@@ -17,6 +17,12 @@ namespace XUnitTestProject1
         {
             Assert.Equal(5000, Program.MakeDeposit(5000, -100));
         }
+
+        [Fact]
+        public void CannotMakeLargeDeposit()
+        {
+            Assert.Equal(5000, Program.MakeDeposit(5000, 5001));
+        }
     }
 
     public class WithdrawalTests
@@ -37,6 +43,12 @@ namespace XUnitTestProject1
         public void CannotMakeNegativeWithdrawal()
         {
             Assert.Equal(5000, Program.MakeWithdrawal(5000, -100));
+        }
+
+        [Fact]
+        public void CannotMakeLargeWithdrawals()
+        {
+            Assert.Equal(6000, Program.MakeWithdrawal(6000, 5001));
         }
     }
 }

@@ -4,7 +4,7 @@ namespace Lab02_UnitTesting
 {
     public class Program
     {
-        public static double balance = 5000;
+        public static double balance = 5000.32;
         public static string receipt = $"***Your Receipt***\nBeginning Balance: ${balance}\n";
 
         static void Main(string[] args)
@@ -21,7 +21,7 @@ namespace Lab02_UnitTesting
             Console.WriteLine("3. Make a Deposit");
             Console.WriteLine("4. Exit");
             string userInput = Console.ReadLine();
-            double selection = CheckForNumbers(userInput);
+            double selection = CheckValidNumbers(userInput);
             
             switch (selection)
             {
@@ -32,7 +32,7 @@ namespace Lab02_UnitTesting
                 case 2:
                     Console.Write("Enter amount to withdraw: ");
                     string enteredWithdrawal = Console.ReadLine();
-                    double withdrawal = CheckForNumbers(enteredWithdrawal);
+                    double withdrawal = CheckValidNumbers(enteredWithdrawal);
                     balance = MakeWithdrawal(balance, withdrawal);
                     Console.WriteLine($"Your current balance is ${balance}");
                     AnotherTransaction();
@@ -40,7 +40,7 @@ namespace Lab02_UnitTesting
                 case 3:
                     Console.Write("Enter deposit amount: ");
                     string enteredDeposit = Console.ReadLine();
-                    double deposit = CheckForNumbers(enteredDeposit);
+                    double deposit = CheckValidNumbers(enteredDeposit);
                     balance = MakeDeposit(balance, deposit);
                     Console.WriteLine($"Your current balance is ${balance}");
                     AnotherTransaction();
@@ -55,12 +55,12 @@ namespace Lab02_UnitTesting
             }
         }
 
-        static double CheckForNumbers(string input)
+        static double CheckValidNumbers(string input)
         {
             double number = 0;
             try
             {
-                number = Convert.ToInt32(input);
+                number = Convert.ToDouble(input);
             }
             catch (Exception)
             {
@@ -91,6 +91,11 @@ namespace Lab02_UnitTesting
                 Console.WriteLine("***Please enter positive numbers only");
                 return balance;
             }
+            if(amount > 5000)
+            {
+                Console.WriteLine("***Please visit a branch for deposits over $5000***");
+                return balance;
+            }
             receipt += $"Deposit: ${amount}\n";
             return balance + amount;
         }
@@ -100,6 +105,11 @@ namespace Lab02_UnitTesting
             if (amount < 0)
             {
                 Console.WriteLine("***Please enter positive numbers only");
+                return balance;
+            }
+            if (amount > 5000)
+            {
+                Console.WriteLine("***Please visit a branch for withdrawals over $5000***");
                 return balance;
             }
             if (balance - amount < 0)
