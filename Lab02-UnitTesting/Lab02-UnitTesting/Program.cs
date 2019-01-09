@@ -87,7 +87,7 @@ namespace Lab02_UnitTesting
 
         public static double MakeDeposit(double balance, double amount)
         {
-            if(amount < 0)
+            if(amount <= 0)
             {
                 Console.WriteLine("***Please enter positive numbers only");
                 return balance;
@@ -103,7 +103,7 @@ namespace Lab02_UnitTesting
 
         public static double MakeWithdrawal(double balance, double amount)
         {
-            if (amount < 0)
+            if (amount <= 0)
             {
                 Console.WriteLine("***Please enter positive numbers only");
                 return balance;
