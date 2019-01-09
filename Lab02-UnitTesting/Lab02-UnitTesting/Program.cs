@@ -12,6 +12,7 @@ namespace Lab02_UnitTesting
 
         static void MainMenu()
         {
+            double balance = 5000;
             Console.WriteLine("Make a Selction From the Following Menu:");
             Console.WriteLine("1. Check Balance");
             Console.WriteLine("2. Make a Withdrawal");
@@ -23,6 +24,7 @@ namespace Lab02_UnitTesting
             switch (selection)
             {
                 case 1:
+                    Console.WriteLine($"Your current balance is ${balance}");
                     break;
                 case 2:
                     break;
