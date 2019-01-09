@@ -114,7 +114,7 @@ namespace Lab02_UnitTesting
             }
             if (balance - amount < 0)
             {
-                Console.WriteLine("Insufficient Funds");
+                Console.WriteLine("***Insufficient Funds***");
                 return balance;
             }
             receipt += $"Withdraw: ${amount}\n";
