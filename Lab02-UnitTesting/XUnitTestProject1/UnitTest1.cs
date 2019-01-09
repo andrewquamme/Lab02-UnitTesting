@@ -4,6 +4,15 @@ using Lab02_UnitTesting;
 
 namespace XUnitTestProject1
 {
+    public class NumberValidationTests
+    {
+        [Fact]
+        public void CannotEnterLetters()
+        {
+            Assert.Equal(0, Program.CheckValidNumbers("x"));
+        }
+    }
+
     public class DepositTests
     {
         [Fact]

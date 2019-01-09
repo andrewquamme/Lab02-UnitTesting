@@ -55,7 +55,7 @@ namespace Lab02_UnitTesting
             }
         }
 
-        static double CheckValidNumbers(string input)
+        public static double CheckValidNumbers(string input)
         {
             double number = 0;
             try
@@ -65,7 +65,8 @@ namespace Lab02_UnitTesting
             catch (Exception)
             {
                 Console.WriteLine("***An error has occurred. Please try again***");
-                AnotherTransaction();
+                //AnotherTransaction();
+                return 0;
             }
             return number;
         }
