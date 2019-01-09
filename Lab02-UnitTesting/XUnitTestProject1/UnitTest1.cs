@@ -33,5 +33,10 @@ namespace XUnitTestProject1
             Assert.Equal(20, Program.MakeWithdrawal(20, 50));
         }
 
+        [Fact]
+        public void CannotMakeNegativeWithdrawal()
+        {
+            Assert.Equal(5000, Program.MakeWithdrawal(5000, -100));
+        }
     }
 }

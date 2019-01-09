@@ -93,7 +93,12 @@ namespace Lab02_UnitTesting
 
         public static double MakeWithdrawal(double balance, double amount)
         {
-            if(balance - amount < 0)
+            if (amount < 0)
+            {
+                Console.WriteLine("***Please enter positive numbers only");
+                return balance;
+            }
+            if (balance - amount < 0)
             {
                 Console.WriteLine("Insufficient Funds");
                 return balance;
