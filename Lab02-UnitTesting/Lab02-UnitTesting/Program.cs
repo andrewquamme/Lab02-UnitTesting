@@ -5,7 +5,7 @@ namespace Lab02_UnitTesting
     public class Program
     {
         public static double balance = 5000;
-        public static string receipt = $"Your Receipt\nBeginning Balance: {balance}\n";
+        public static string receipt = $"***Your Receipt***\nBeginning Balance: ${balance}\n";
 
         static void Main(string[] args)
         {
@@ -91,7 +91,7 @@ namespace Lab02_UnitTesting
                 Console.WriteLine("***Please enter positive numbers only");
                 return balance;
             }
-            receipt += $"Deposit: {amount}\n";
+            receipt += $"Deposit: ${amount}\n";
             return balance + amount;
         }
 
@@ -107,14 +107,14 @@ namespace Lab02_UnitTesting
                 Console.WriteLine("Insufficient Funds");
                 return balance;
             }
-            receipt += $"Withdraw: {amount}\n";
+            receipt += $"Withdraw: ${amount}\n";
             return balance - amount;
         }
 
         static void PrintReceipt()
         {
             Console.Clear();
-            receipt += $"Ending Balance: {balance}";
+            receipt += $"Ending Balance: ${balance}";
             Console.WriteLine($"{receipt}\n\nPress any key to exit");
             Console.ReadLine();
             Environment.Exit(0);
