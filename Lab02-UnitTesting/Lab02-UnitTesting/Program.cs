@@ -93,7 +93,7 @@ namespace Lab02_UnitTesting
 
         public static double MakeWithdrawal(double balance, double amount)
         {
-
+            return balance - amount;
         }
     }
 }

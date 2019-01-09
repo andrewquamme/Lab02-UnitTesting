@@ -18,4 +18,14 @@ namespace XUnitTestProject1
             Assert.Equal(5000, Program.MakeDeposit(5000, -100));
         }
     }
+
+    public class WithdrawalTests
+    {
+        [Fact]
+        public void CanMakeWithdrawal()
+        {
+            Assert.Equal(4000, Program.MakeWithdrawal(5000, 1000));
+        }
+
+    }
 }
