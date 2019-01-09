@@ -33,6 +33,7 @@ namespace Lab02_UnitTesting
                     string enteredWithdrawal = Console.ReadLine();
                     double withdrawal = CheckForNumbers(enteredWithdrawal);
                     balance = MakeWithdrawal(balance, withdrawal);
+                    Console.WriteLine($"Your current balance is ${balance}");
                     AnotherTransaction();
                     break;
                 case 3:
@@ -40,6 +41,7 @@ namespace Lab02_UnitTesting
                     string enteredDeposit = Console.ReadLine();
                     double deposit = CheckForNumbers(enteredDeposit);
                     balance = MakeDeposit(balance, deposit);
+                    Console.WriteLine($"Your current balance is ${balance}");
                     AnotherTransaction();
                     break;
                 case 4:
@@ -71,7 +73,7 @@ namespace Lab02_UnitTesting
         {
             Console.WriteLine("Would you like to make another transaction? Y/N");
             string selection = Console.ReadLine();
-            if (selection.ToUpper() == "Y")
+            if (selection.ToUpper() == "Y" || selection == "")
             {
                 MainMenu();
             }
