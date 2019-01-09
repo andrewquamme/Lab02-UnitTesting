@@ -4,7 +4,7 @@ namespace Lab02_UnitTesting
 {
     public class Program
     {
-        public static double balance = 5000.32;
+        public static double balance = 500.32;
         public static string receipt = $"***Your Receipt***\nBeginning Balance: ${balance}\n";
 
         static void Main(string[] args)
@@ -64,8 +64,6 @@ namespace Lab02_UnitTesting
             }
             catch (Exception)
             {
-                Console.WriteLine("***An error has occurred. Please try again***");
-                //AnotherTransaction();
                 return 0;
             }
             return number;
@@ -89,7 +87,7 @@ namespace Lab02_UnitTesting
         {
             if(amount <= 0)
             {
-                Console.WriteLine("***Please enter positive numbers only");
+                Console.WriteLine("***Please enter positive numbers only***");
                 return balance;
             }
             if(amount > 5000)
@@ -105,7 +103,7 @@ namespace Lab02_UnitTesting
         {
             if (amount <= 0)
             {
-                Console.WriteLine("***Please enter positive numbers only");
+                Console.WriteLine("***Please enter positive numbers only***");
                 return balance;
             }
             if (amount > 5000)

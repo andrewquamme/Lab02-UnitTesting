@@ -11,6 +11,12 @@ namespace XUnitTestProject1
         {
             Assert.Equal(0, Program.CheckValidNumbers("x"));
         }
+
+        [Fact]
+        public void CannotEnterBlank()
+        {
+            Assert.Equal(0, Program.CheckValidNumbers(""));
+        }
     }
 
     public class DepositTests
