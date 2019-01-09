@@ -81,7 +81,7 @@ namespace Lab02_UnitTesting
             if(deposit < 0)
             {
                 Console.WriteLine("***Please enter positive numbers only");
-                MainMenu(balance);
+                return balance;
             }
             return balance + deposit;
         }
