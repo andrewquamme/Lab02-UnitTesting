@@ -5,6 +5,7 @@ namespace Lab02_UnitTesting
     public class Program
     {
         public static double balance = 5000;
+        public static string receipt = $"Beginning Balance: {balance}\n";
 
         static void Main(string[] args)
         {
@@ -45,7 +46,7 @@ namespace Lab02_UnitTesting
                     AnotherTransaction();
                     break;
                 case 4:
-                    Environment.Exit(0);
+                    PrintReceipt();
                     break;
                 default:
                     Console.WriteLine("***Please make a valid selection.***");
@@ -79,7 +80,7 @@ namespace Lab02_UnitTesting
             }
             else
             {
-                Environment.Exit(0);
+                PrintReceipt();
             }
         }
 
@@ -106,6 +107,12 @@ namespace Lab02_UnitTesting
                 return balance;
             }
             return balance - amount;
+        }
+
+        public static void PrintReceipt()
+        {
+            Console.WriteLine(recepit);
+            Environment.Exit(0);
         }
     }
 }
