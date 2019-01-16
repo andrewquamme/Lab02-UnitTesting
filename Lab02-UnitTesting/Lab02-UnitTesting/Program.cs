@@ -4,7 +4,9 @@ namespace Lab02_UnitTesting
 {
     public class Program
     {
+        //starting balance
         public static double balance = 500.32;
+        //initialize "receipt" string
         public static string receipt = $"***Your Receipt***\nBeginning Balance: ${balance}\n";
 
         static void Main(string[] args)
@@ -13,6 +15,9 @@ namespace Lab02_UnitTesting
             MainMenu();
         }
 
+        /// <summary>
+        /// Display ATM Main Menu
+        /// </summary>
         static void MainMenu()
         {
             Console.WriteLine("Make a Selction From the Following Menu:");
@@ -55,6 +60,12 @@ namespace Lab02_UnitTesting
             }
         }
 
+        /// <summary>
+        /// Take a string as input and determine if it contains valid numbers.
+        /// Returns 0 if invalid
+        /// </summary>
+        /// <param name="input">string</param>
+        /// <returns>number</returns>
         public static double CheckValidNumbers(string input)
         {
             double number = 0;
@@ -69,6 +80,10 @@ namespace Lab02_UnitTesting
             return number;
         }
 
+        /// <summary>
+        /// Ask user to make another transaction.
+        /// Y Returns to Main Menu, N prints receipt and exits
+        /// </summary>
         static void AnotherTransaction()
         {
             Console.WriteLine("Would you like to make another transaction? Y/N");
@@ -83,6 +98,13 @@ namespace Lab02_UnitTesting
             }
         }
 
+        /// <summary>
+        /// Make a "deposit" into the account
+        /// Does not allow negatives or deposits > 5000
+        /// </summary>
+        /// <param name="balance">current balance</param>
+        /// <param name="amount">amount of deposit</param>
+        /// <returns>new balance</returns>
         public static double MakeDeposit(double balance, double amount)
         {
             if(amount <= 0)
@@ -99,6 +121,13 @@ namespace Lab02_UnitTesting
             return balance + amount;
         }
 
+        /// <summary>
+        /// Make a "withdrawal" from the account
+        /// Does not allow negatives, withdrawals > 5000, or overdrafts
+        /// </summary>
+        /// <param name="balance">current balance</param>
+        /// <param name="amount">amout of withdrawal</param>
+        /// <returns>new balance</returns>
         public static double MakeWithdrawal(double balance, double amount)
         {
             if (amount <= 0)
@@ -120,6 +149,10 @@ namespace Lab02_UnitTesting
             return balance - amount;
         }
 
+        /// <summary>
+        /// Displays a "receipt" of beginning balance, list of
+        /// transactions, and ending balance
+        /// </summary>
         static void PrintReceipt()
         {
             Console.Clear();
